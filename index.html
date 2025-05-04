@@ -13,8 +13,8 @@
 
     <div class="main-container">
         <header class="app-header">
-            <!-- Re-added Developer Name Display -->
-            <div class="developer-name-display">Dammie Optimus Solutions</div>
+            <!-- Developer Name Display -->
+            <div class="developer-name-display">Dammie Optimus Solution</div>
             <h1>TGR EPIN Formatter</h1>
             <p class="app-description">
                 Paste your raw EPIN data below (PINs Network Amount format) to generate print-ready recharge cards with your business name.
@@ -22,6 +22,7 @@
             <button id="open-modal-btn" class="cta-button">Start Formatting</button>
         </header>
 
+        <!-- Main Input Modal -->
         <div id="modal" class="modal hidden">
             <div class="modal-content">
                 <button id="close-modal-btn" class="close-button">×</button>
@@ -33,7 +34,11 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="raw-epins">Paste Raw EPIN Data Here</label>
+                        <label for="raw-epins">
+                            Paste Raw EPIN Data Here
+                            <!-- Help Icon Added Here -->
+                            <span id="help-icon-button" class="help-icon" role="button" tabindex="0" aria-label="Show sample EPIN data">?</span>
+                        </label>
                         <textarea id="raw-epins" rows="10" placeholder="Paste all EPINs here, e.g:
 111...111 222...222 MTN 100 333...333 AIRTEL 200 444...444 GLO 500 ..." required></textarea>
                     </div>
@@ -51,8 +56,65 @@
             </div>
         </div>
 
+        <!-- Help Modal Structure -->
+        <div id="help-modal" class="modal hidden">
+            <div class="modal-content help-modal-content">
+                <button id="close-help-modal-btn" class="close-button">×</button>
+                <h2>Sample EPIN Data Format</h2>
+                <p>Paste data with PINs followed by Network and Amount, like this:</p>
+                <pre id="sample-data-content">
+3947948358696666
+8390722786143649
+7822659572137829
+9799439243221856
+3018135073888655
+2245799368608682 airtel 100
+3188540939489816
+3686122077494153
+2326605630108462 airtel 200
+9246092244697348
+3149327331281753
+2707089442883002 airtel 500
+88623215783871442
+65432877573123346
+81580791051081441 mtn 100
+45516889455407348
+72859750518924543
+70442072604940490 mtn 200
+53254505206645302
+39840288097307057
+63360228449438995
+21118581995973624
+36363052602069420
+57217416346956022 mtn 500
+7427497292919231
+8623245288577355
+1105807857103039 glo 100
+2483704884225012
+1402078243024169
+3122730717390407
+2549244264240561
+3821599216827703
+4538019061369713 glo 200
+4746717915258792
+2259410841943998
+2151142098775655 glo 500
+966015135720947
+102061951412978
+211412936645085 9mobile 100
+251768427298592
+688151610451342
+632965284465439 9mobile 200
+205890914221597
+707486561754285
+664114810766957 9mobile 500
+                </pre>
+            </div>
+        </div>
+
+
         <footer class="app-footer">
-            <p id="copyright">© Dammie Optimus Solutions. All rights reserved.</p>
+            <p id="copyright">© Dammie Optimus Solution. All rights reserved.</p>
         </footer>
     </div>
 

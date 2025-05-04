@@ -59,7 +59,7 @@ body {
     animation: fadeInDown 0.8s ease-out;
 }
 
-/* Added Styling for Developer Name */
+/* Styling for Developer Name */
 .developer-name-display {
     font-size: 0.85rem; /* Smaller font */
     color: var(--text-medium);
@@ -183,6 +183,7 @@ h1 { /* Main App Name Title - Blue */
 .form-group {
     margin-bottom: 25px;
     text-align: left;
+    position: relative; /* Added for icon positioning if needed */
 }
 
 .form-group label {
@@ -191,6 +192,32 @@ h1 { /* Main App Name Title - Blue */
     font-weight: 600;
     color: var(--text-medium);
     font-size: 0.9rem;
+}
+
+/* Style for the Help Icon */
+.help-icon {
+    display: inline-block;
+    margin-left: 8px;
+    width: 18px;
+    height: 18px;
+    background-color: var(--primary-color); /* Blue background */
+    color: var(--bg-dark); /* Dark text */
+    border-radius: 50%;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    line-height: 18px; /* Center the '?' vertically */
+    cursor: pointer;
+    user-select: none; /* Prevent text selection */
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    vertical-align: middle; /* Align with label text */
+}
+
+.help-icon:hover, .help-icon:focus {
+    background-color: var(--accent-color); /* Yellow on hover/focus */
+    color: var(--bg-dark);
+    transform: scale(1.1);
+    outline: none; /* Remove default focus outline if needed */
 }
 
 input[type="text"],
@@ -295,6 +322,37 @@ textarea {
     .modal-content { padding: 20px; }
     .cta-button { padding: 12px 25px; font-size: 1rem; }
 }
+
+/* --- Help Modal Specific Styles */
+.help-modal-content {
+    /* Optional: Make help modal slightly wider if needed */
+    /* max-width: 750px; */
+}
+
+.help-modal-content h2 {
+    color: var(--primary-color); /* Blue heading */
+}
+
+.help-modal-content p {
+    text-align: center;
+    margin-bottom: 15px;
+    color: var(--text-medium);
+}
+
+.help-modal-content pre {
+    background-color: var(--bg-dark);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    color: var(--text-light);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem;
+    white-space: pre-wrap;   /* Wrap long lines if necessary */
+    word-break: break-all;   /* Break long words/PINs */
+    max-height: 50vh;        /* Limit height and allow scrolling */
+    overflow-y: auto;
+}
+
 
 /* --- Print Styles (Final adjustments for GLO Expiry & Alignment) --- */
 @media print {
