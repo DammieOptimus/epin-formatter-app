@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TGR EPIN Formatter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+
+    <div class="main-container">
+        <header class="app-header">
+            <!-- Re-added Developer Name Display -->
+            <div class="developer-name-display">Dammie Optimus Solutions</div>
+            <h1>TGR EPIN Formatter</h1>
+            <p class="app-description">
+                Paste your raw EPIN data below (PINs Network Amount format) to generate print-ready recharge cards with your business name.
+            </p>
+            <button id="open-modal-btn" class="cta-button">Start Formatting</button>
+        </header>
+
+        <div id="modal" class="modal hidden">
+            <div class="modal-content">
+                <button id="close-modal-btn" class="close-button">×</button>
+                <h2>Enter Details</h2>
+                <form id="epin-form">
+                     <div class="form-group">
+                        <label for="user-business-name-input">Your Business Name (for cards)</label>
+                        <input type="text" id="user-business-name-input" placeholder="e.g., My Shop Ventures" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="raw-epins">Paste Raw EPIN Data Here</label>
+                        <textarea id="raw-epins" rows="10" placeholder="Paste all EPINs here, e.g:
+111...111 222...222 MTN 100 333...333 AIRTEL 200 444...444 GLO 500 ..." required></textarea>
+                    </div>
+
+                    <div id="analytics" class="analytics-section">
+                        <h3>Real-time Analytics</h3>
+                        <p id="total-count">Total EPINs Found: 0</p>
+                        <div id="breakdown">
+                            <!-- Breakdown details here -->
+                        </div>
+                    </div>
+
+                    <button type="submit" id="format-btn" class="cta-button modal-button">Format & Prepare Print</button>
+                </form>
+            </div>
+        </div>
+
+        <footer class="app-footer">
+            <p id="copyright">© Dammie Optimus Solutions. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
