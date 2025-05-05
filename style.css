@@ -12,7 +12,9 @@
     --text-medium: #A0A0A0;
     --border-color: #333333;
     --success-color: #198754;
-    --error-color: var(--secondary-color); /* Use Brand Red for errors */
+    --error-color: var(--secondary-color);
+    /* Darker WhatsApp Green */
+    --whatsapp-green: #128C7E; /* Example darker shade */
 
     --font-family: 'Poppins', sans-serif;
     --transition-speed: 0.3s;
@@ -55,16 +57,16 @@ body {
 
 /* --- Header --- */
 .app-header {
-    margin-bottom: 30px; /* Reduced margin */
+    margin-bottom: 30px;
     animation: fadeInDown 0.8s ease-out;
 }
 
 /* Styling for Developer Name */
 .developer-name-display {
-    font-size: 0.85rem; /* Smaller font */
+    font-size: 0.85rem;
     color: var(--text-medium);
     margin-bottom: 5px;
-    opacity: 0.7; /* Make it slightly faded */
+    opacity: 0.7;
 }
 
 h1 { /* Main App Name Title - Blue */
@@ -84,8 +86,8 @@ h1 { /* Main App Name Title - Blue */
 
 /* --- Buttons (Red Theme) --- */
 .cta-button {
-    background: linear-gradient(135deg, var(--secondary-color), #a71d2a); /* Darker Red */
-    color: #fff; /* White text */
+    background: linear-gradient(135deg, var(--secondary-color), #a71d2a);
+    color: #fff;
     border: none;
     padding: 14px 30px;
     border-radius: 30px;
@@ -94,13 +96,14 @@ h1 { /* Main App Name Title - Blue */
     cursor: pointer;
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background var(--transition-speed) ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    margin-bottom: 15px;
 }
 
 .cta-button:hover {
     transform: translateY(-3px);
-     /* Glow effect using Red */
     box-shadow: 0 8px 20px rgba(220, 53, 69, 0.4);
-    background: linear-gradient(135deg, #e44d5c, #a71d2a); /* Slightly lighter hover */
+    background: linear-gradient(135deg, #e44d5c, #a71d2a);
 }
 
 .cta-button:active {
@@ -108,324 +111,111 @@ h1 { /* Main App Name Title - Blue */
     box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
 }
 
+/* Promotional Contact Message Styling */
+.promo-contact-msg {
+    font-size: 0.8rem;
+    color: var(--text-medium);
+    opacity: 0.8;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+
+/* WhatsApp Button Styling (Darker Background) */
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 10px;
+    padding: 4px 9px;
+    /* Use the darker green variable */
+    background-color: var(--whatsapp-green);
+    color: #fff; /* White text should be fine on darker green */
+    font-size: 0.7rem;
+    font-weight: 500;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; /* Added background transition */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.whatsapp-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(18, 140, 126, 0.4); /* Adjusted hover shadow color */
+    /* Optionally slightly lighten on hover */
+    /* background-color: #1FAF38; */
+}
+.whatsapp-button .fab.fa-whatsapp {
+     font-size: 0.9em;
+}
+
+
 .modal-button {
     width: 100%;
     margin-top: 25px;
 }
 
 .close-button {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: var(--text-medium);
-    cursor: pointer;
+    position: absolute; top: 15px; right: 20px; background: none; border: none;
+    font-size: 2rem; color: var(--text-medium); cursor: pointer;
     transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
 }
-
-.close-button:hover {
-    color: var(--secondary-color); /* Red hover */
-    transform: rotate(90deg);
-}
+.close-button:hover { color: var(--secondary-color); transform: rotate(90deg); }
 
 /* --- Modal --- */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(5px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity var(--transition-speed) ease, visibility 0s var(--transition-speed) linear;
-}
-
-.modal:not(.hidden) {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity var(--transition-speed) ease, visibility 0s linear;
-}
-
-.modal-content {
-    background-color: var(--surface-dark);
-    padding: 40px;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 650px;
-    position: relative;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-    transform: scale(0.95);
-    transition: transform var(--transition-speed) ease;
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
-.modal:not(.hidden) .modal-content {
-    transform: scale(1);
-}
-
-.modal-content h2 { /* Modal Title - Blue */
-    text-align: center;
-    color: var(--primary-color);
-    margin-bottom: 30px;
-    font-weight: 600;
-}
+.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px); display: flex; justify-content: center; align-items: center; z-index: 1000; opacity: 0; visibility: hidden; transition: opacity var(--transition-speed) ease, visibility 0s var(--transition-speed) linear; }
+.modal:not(.hidden) { opacity: 1; visibility: visible; transition: opacity var(--transition-speed) ease, visibility 0s linear; }
+.modal-content { background-color: var(--surface-dark); padding: 40px; border-radius: 12px; width: 90%; max-width: 650px; position: relative; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); transform: scale(0.95); transition: transform var(--transition-speed) ease; max-height: 90vh; overflow-y: auto; }
+.modal:not(.hidden) .modal-content { transform: scale(1); }
+.modal-content h2 { text-align: center; color: var(--primary-color); margin-bottom: 30px; font-weight: 600; }
 
 /* --- Form Elements --- */
-.form-group {
-    margin-bottom: 25px;
-    text-align: left;
-    position: relative; /* Added for icon positioning if needed */
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: var(--text-medium);
-    font-size: 0.9rem;
-}
-
-/* Style for the Help Icon */
-.help-icon {
-    display: inline-block;
-    margin-left: 8px;
-    width: 18px;
-    height: 18px;
-    background-color: var(--primary-color); /* Blue background */
-    color: var(--bg-dark); /* Dark text */
-    border-radius: 50%;
-    text-align: center;
-    font-size: 0.8rem;
-    font-weight: bold;
-    line-height: 18px; /* Center the '?' vertically */
-    cursor: pointer;
-    user-select: none; /* Prevent text selection */
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    vertical-align: middle; /* Align with label text */
-}
-
-.help-icon:hover, .help-icon:focus {
-    background-color: var(--accent-color); /* Yellow on hover/focus */
-    color: var(--bg-dark);
-    transform: scale(1.1);
-    outline: none; /* Remove default focus outline if needed */
-}
-
-input[type="text"],
-textarea {
-    width: 100%;
-    padding: 12px 15px;
-    background-color: var(--bg-dark);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    color: var(--text-light);
-    font-family: var(--font-family);
-    font-size: 1rem;
-    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-}
-
-input[type="text"]:focus,
-textarea:focus {
-    outline: none;
-    border-color: var(--primary-color); /* Blue focus */
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3); /* Blue focus glow */
-}
-
-textarea {
-    resize: vertical;
-    min-height: 150px;
-    line-height: 1.5;
-}
+.form-group { margin-bottom: 25px; text-align: left; position: relative; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-medium); font-size: 0.9rem; }
+.help-icon { display: inline-block; margin-left: 8px; width: 18px; height: 18px; background-color: var(--primary-color); color: var(--bg-dark); border-radius: 50%; text-align: center; font-size: 0.8rem; font-weight: bold; line-height: 18px; cursor: pointer; user-select: none; transition: transform 0.2s ease, background-color 0.2s ease; vertical-align: middle; }
+.help-icon:hover, .help-icon:focus { background-color: var(--accent-color); color: var(--bg-dark); transform: scale(1.1); outline: none; }
+input[type="text"], textarea { width: 100%; padding: 12px 15px; background-color: var(--bg-dark); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-light); font-family: var(--font-family); font-size: 1rem; transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease; }
+input[type="text"]:focus, textarea:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3); }
+textarea { resize: vertical; min-height: 150px; line-height: 1.5; }
 
 /* --- Analytics Section --- */
-.analytics-section {
-    margin-top: 30px;
-    padding: 20px;
-    background-color: var(--bg-dark);
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    text-align: left;
-    animation: fadeInUp 0.5s ease-out;
-}
-
-.analytics-section h3 { /* Analytics Title - Blue */
-    color: var(--primary-color);
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-    text-align: center;
-}
-
-#total-count {
-    font-weight: 600;
-    margin-bottom: 15px;
-    text-align: center;
-    font-size: 1.1rem;
-}
-
-#breakdown {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-    font-size: 0.9rem;
-    color: var(--text-medium);
-}
-
-#breakdown span {
-    background-color: var(--surface-dark);
-    padding: 8px 12px;
-    border-radius: 5px;
-    text-align: center;
-    /* Use Red Accent Border */
-    border-left: 3px solid var(--secondary-color);
-}
+.analytics-section { margin-top: 30px; padding: 20px; background-color: var(--bg-dark); border-radius: 8px; border: 1px solid var(--border-color); text-align: left; animation: fadeInUp 0.5s ease-out; }
+.analytics-section h3 { color: var(--primary-color); margin-bottom: 15px; font-size: 1.2rem; text-align: center; }
+#total-count { font-weight: 600; margin-bottom: 15px; text-align: center; font-size: 1.1rem; }
+#breakdown { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; font-size: 0.9rem; color: var(--text-medium); }
+#breakdown span { background-color: var(--surface-dark); padding: 8px 12px; border-radius: 5px; text-align: center; border-left: 3px solid var(--secondary-color); }
 
 /* --- Footer --- */
-.app-footer {
-    margin-top: 40px;
-    font-size: 0.85rem;
-    color: var(--text-medium);
-    opacity: 0.7;
-}
+.app-footer { margin-top: 20px; font-size: 0.85rem; color: var(--text-medium); opacity: 0.7; }
 
 /* --- Animations --- */
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
 /* --- Responsiveness --- */
-@media (max-width: 768px) {
-    html { font-size: 14px; }
-    h1 { font-size: 2.2rem; }
-    .app-description { font-size: 1rem; }
-    .modal-content { padding: 30px; width: 95%; }
-}
+@media (max-width: 768px) { html { font-size: 14px; } h1 { font-size: 2.2rem; } .app-description { font-size: 1rem; } .modal-content { padding: 30px; width: 95%; } }
+@media (max-width: 480px) { html { font-size: 13px; } h1 { font-size: 1.8rem; } .main-container { padding: 20px; } .modal-content { padding: 20px; } .cta-button { padding: 12px 25px; font-size: 1rem; } .promo-contact-msg { margin-top: 20px; font-size: 0.75rem;} .whatsapp-button { font-size: 0.65rem; padding: 3px 8px; gap: 3px; } }
 
-@media (max-width: 480px) {
-    html { font-size: 13px; }
-    h1 { font-size: 1.8rem; }
-    .main-container { padding: 20px; }
-    .modal-content { padding: 20px; }
-    .cta-button { padding: 12px 25px; font-size: 1rem; }
-}
+/* --- Help Modal Specific Styles --- */
+.help-modal-content h2 { color: var(--primary-color); }
+.help-modal-content p { text-align: center; margin-bottom: 15px; color: var(--text-medium); }
+.help-modal-content pre { background-color: var(--bg-dark); padding: 15px; border-radius: 8px; border: 1px solid var(--border-color); color: var(--text-light); font-family: 'Courier New', Courier, monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; max-height: 50vh; overflow-y: auto; }
 
-/* --- Help Modal Specific Styles */
-.help-modal-content {
-    /* Optional: Make help modal slightly wider if needed */
-    /* max-width: 750px; */
-}
-
-.help-modal-content h2 {
-    color: var(--primary-color); /* Blue heading */
-}
-
-.help-modal-content p {
-    text-align: center;
-    margin-bottom: 15px;
-    color: var(--text-medium);
-}
-
-.help-modal-content pre {
-    background-color: var(--bg-dark);
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    color: var(--text-light);
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.85rem;
-    white-space: pre-wrap;   /* Wrap long lines if necessary */
-    word-break: break-all;   /* Break long words/PINs */
-    max-height: 50vh;        /* Limit height and allow scrolling */
-    overflow-y: auto;
-}
-
-
-/* --- Print Styles (Final adjustments for GLO Expiry & Alignment) --- */
+/* --- Print Styles --- */
 @media print {
     body { background-color: #fff !important; color: #000 !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; margin: 0; padding: 0; width: auto; height: auto; }
     @page { size: A4; margin: 5mm; }
-    .main-container, .modal, .app-header, .app-footer, #open-modal-btn { display: none !important; }
+    .main-container, .modal, .app-header, .app-footer, #open-modal-btn, .whatsapp-button, .promo-contact-msg { display: none !important; }
     #print-output { display: block !important; width: 100%; height: auto; margin: 0; padding: 0; }
-
-    .print-page {
-        width: 100%; height: 100%; display: grid;
-        grid-template-columns: repeat(5, 1fr); gap: 1mm;
-        /* Reinforce top-left alignment */
-        justify-content: start !important;
-        align-content: start !important;
-        justify-items: start !important; /* Align items themselves to start */
-        align-items: start !important;   /* Align items themselves to start */
-    }
-
-    .recharge-card {
-        border: 0.5pt dashed #aaa;
-        padding: 1.5mm; /* Reduced padding slightly more */
-        background-color: #fff !important; color: #000 !important;
-        overflow: hidden !important; page-break-inside: avoid !important;
-        display: flex; flex-direction: column; justify-content: space-between;
-        height: 28mm; /* Maintaining fixed height */
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 6pt; /* Further reduced base font size */
-    }
-
-    .card-header {
-        display: flex; justify-content: space-between; align-items: center;
-        margin-bottom: 0.3mm; /* Reduced margin */
-    }
-    .card-business-name {
-        font-size: 5pt; /* Slightly smaller business name */
-         font-weight: bold; text-align: left; flex-shrink: 0;
-         line-height: 1.1; /* Ensure single line */
-    }
-    .card-logo {
-        max-width: 15mm; /* Slightly reduced logo */
-        max-height: 5.5mm;
-        object-fit: contain;
-    }
-    .card-details {
-        text-align: center; margin-bottom: 0.3mm; /* Reduced margin */
-        flex-grow: 1; display: flex; flex-direction: column; justify-content: center;
-    }
-    .card-network-amount {
-        font-weight: bold; font-size: 6.5pt; /* Reduced */
-        margin-bottom: 0.3mm; /* Reduced margin */
-    }
-    .card-pin {
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 10pt; /* Reduced PIN size */
-        font-weight: bold; letter-spacing: 0.4px; /* Adjusted */
-        margin-bottom: 0.4mm; /* Reduced margin */
-        word-break: break-all; line-height: 1.0; /* Tightened line height */
-    }
-
-    /* Footer adjustments are critical for GLO */
-    .card-footer {
-        font-size: 5pt; /* Reduced footer font size significantly */
-        text-align: center; color: #333; margin-top: auto;
-        line-height: 1.0; /* Tightened line height */
-        /* Remove any potential extra padding/margin */
-        padding-top: 0.2mm;
-    }
-     .card-load-code {
-         margin-bottom: 0mm; /* Removed bottom margin */
-     }
-    .card-expiry {
-        font-style: italic;
-         /* Remove any potential top margin */
-         margin-top: 0.1mm;
-    }
+    .print-page { width: 100%; height: 100%; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1mm; justify-content: start !important; align-content: start !important; justify-items: start !important; align-items: start !important; }
+    .recharge-card { border: 0.5pt dashed #aaa; padding: 1.5mm; background-color: #fff !important; color: #000 !important; overflow: hidden !important; page-break-inside: avoid !important; display: flex; flex-direction: column; justify-content: space-between; height: 28mm; font-family: Arial, Helvetica, sans-serif; font-size: 6pt; }
+    .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3mm; }
+    .card-business-name { font-size: 5pt; font-weight: bold; text-align: left; flex-shrink: 0; line-height: 1.1; }
+    .card-logo { max-width: 15mm; max-height: 5.5mm; object-fit: contain; }
+    .card-details { text-align: center; margin-bottom: 0.3mm; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+    .card-network-amount { font-weight: bold; font-size: 6.5pt; margin-bottom: 0.3mm; }
+    .card-pin { font-family: 'Courier New', Courier, monospace; font-size: 10pt; font-weight: bold; letter-spacing: 0.4px; margin-bottom: 0.4mm; word-break: break-all; line-height: 1.0; }
+    .card-footer { font-size: 5pt; text-align: center; color: #333; margin-top: auto; line-height: 1.0; padding-top: 0.2mm; }
+    .card-load-code { margin-bottom: 0mm; }
+    .card-expiry { font-style: italic; margin-top: 0.1mm; }
 }

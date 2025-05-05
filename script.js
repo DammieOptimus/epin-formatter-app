@@ -29,15 +29,18 @@ document.addEventListener('DOMContentLoaded', () => {
      };
     const GLO_EXPIRY_DAYS = 6;
     const APP_NAME = "TGR EPIN Formatter";
-    const DEVELOPER_NAME = "Dammie Optimus Solution";
+    // Corrected Developer Name Constant
+    const DEVELOPER_NAME = "Dammie Optimus Solutions";
 
     // --- Functions ---
 
     // Update copyright year and app/developer name displays
     const updateStaticNames = () => {
         const currentYear = new Date().getFullYear();
+        // Use corrected constant here
         copyrightEl.textContent = `© ${currentYear} ${DEVELOPER_NAME}. All rights reserved.`;
         appTitleH1.textContent = APP_NAME;
+        // Use corrected constant here
         if (developerNameDisplay) { developerNameDisplay.textContent = DEVELOPER_NAME; }
     };
 
