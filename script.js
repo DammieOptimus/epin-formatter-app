@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         MTN: 'logos/mtn.png', AIRTEL: 'logos/airtel.png', GLO: 'logos/glo.png', '9MOBILE': 'logos/9mobile.png',
      };
     const LOAD_CODES = {
-        GLO: '*203*3*PIN#', DEFAULT: '*311*PIN#',
+        DEFAULT: '*311*PIN#',
      };
     const GLO_EXPIRY_DAYS = 6;
     const APP_NAME = "TGR EPIN Formatter";
@@ -80,11 +80,15 @@ document.addEventListener('DOMContentLoaded', () => {
      };
 
     // Calculate and format expiry date for GLO
-    const getExpiryInfo = (network) => {
+    /* const getExpiryInfo = (network) => {
         if (network.toUpperCase() !== 'GLO') return null;
         const expiryDate = new Date();
         expiryDate.setDate(expiryDate.getDate() + GLO_EXPIRY_DAYS);
         return `USE BEFORE: ${formatDate(expiryDate)}`;
+    }; */
+    const getExpiryInfo = (network) => {
+        
+        return null; // No networks have an expiry date anymore
     };
 
     // Parse entire raw EPIN text block
